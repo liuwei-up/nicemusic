@@ -1,0 +1,83 @@
+/* 抽取部分css代码封装成为函数复用 */
+MvPlayIcon(w = 55px, fs = 40px, ts = 1px)
+	// w字体图标容器（背景）的宽度，fs是fontsize（字体图标大小）
+	// ts 是字体图标偏移量
+	// 在 .imgwrap 下调用，鼠标经过就显示播放图标的效果
+	position: relative
+	width: 100%
+
+	> .icon-icon_Play
+		position: absolute
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)
+		width: w
+		height: w
+		color: #dd6d60
+		font-size: fs
+		transition: all 0.5s
+		border-radius: 50%
+		display: flex
+		align-items: center
+		justify-content: center
+		background: rgba(255, 255, 255, 0.8)
+		opacity: 0
+
+		&::before
+			transform: translateX(ts)
+
+	&:hover > .icon-icon_Play
+		opacity: 1
+
+PlayListIcon()
+ 	// 在 .img-wrap 下调用
+	//  需要给.img-wrap 添加 position: relative
+	.icon-icon_Play
+		display: flex
+		position: absolute
+		right: 20px
+		bottom: 20px
+		width: 55px
+		height: 55px
+		color: #dd6d60
+		font-size: 40px
+		border-radius: 50%
+		transition: all 0.5s
+		align-items: center
+		justify-content: center
+		background: rgba(255, 255, 255, 0.8)
+		opacity: 0
+
+		&::before
+			transform: translateX(1px)
+
+	&:hover > .icon-icon_Play
+		opacity: 1
+
+ElImage(w = 70px)
+	width: w
+	height: w
+	display: flex
+	flex-direction: column
+	justify-content: center
+	align-items: center
+	border-radius: 5px
+
+	i
+		font-size: 30px
+
+SongWrap()
+	display: flex
+	flex-direction: column
+	justify-content: center
+	align-items: flex-start
+
+	> span
+		margin-top: 4px
+		font-size: 12px
+		display: inline-block
+		color: #bebebe
+
+	.icon-MV
+		padding-left: 5px
+		color: #dd6d60
